@@ -126,11 +126,12 @@ public class ExtensionFilters {
   public static final ExtensionFilter WIFF2 = new ExtensionFilter("wiff2", "*.wiff2");
   public static final ExtensionFilter SHIMADZU = new ExtensionFilter(".lcd", "*.lcd");
   public static final ExtensionFilter MBI = new ExtensionFilter("MOBILion", "*.mbi");
+  public static final ExtensionFilter TOFWERK_H5 = new ExtensionFilter("TOFWERK h5 files", "*.h5");
 
   public static final ExtensionFilter ALL_MS_DATA_FILTER = new ExtensionFilter("MS data", "*.mzML",
       "*.mzml", "*.mzXML", "*.mzxml", "*.imzML", "*.imzml", "*.d", "*.tdf", "*.tsf", "*.raw",
       "*.RAW", "*.mzData", "*.netcdf", "*.mzdata", /*"*.aird",*/ "*.wiff", "*.wiff2", "*.lcd",
-      "*.mbi");
+      "*.mbi", "*.h5");
   public static final List<ExtensionFilter> MS_RAW_DATA = List.of( //
       ALL_MS_DATA_FILTER, //
       MZML, //
@@ -148,6 +149,7 @@ public class ExtensionFilters {
       WIFF, //
       WIFF2, //
       MBI, //
+      TOFWERK_H5, //
       SHIMADZU, //
       ALL_FILES);
   private static final ExtensionFilter ALL_SPECTRAL_LIBRARY_FILTER = new ExtensionFilter(

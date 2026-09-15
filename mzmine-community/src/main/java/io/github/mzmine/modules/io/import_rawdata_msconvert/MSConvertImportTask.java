@@ -158,6 +158,7 @@ public class MSConvertImportTask extends AbstractTask implements RawDataImportTa
       case MBI -> false;
       case SHIMADZU_LCD -> true;
       case WATERS_RAW_IMS, AGILENT_D_IMS -> false;
+      case TOFWERK_H5 -> false;
     };
   }
 

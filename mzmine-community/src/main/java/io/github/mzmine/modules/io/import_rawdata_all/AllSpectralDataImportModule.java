@@ -58,6 +58,7 @@ import io.github.mzmine.modules.io.import_rawdata_mzml.MSDKmzMLImportTask;
 import io.github.mzmine.modules.io.import_rawdata_mzxml.MzXMLImportTask;
 import io.github.mzmine.modules.io.import_rawdata_netcdf.NetCDFImportTask;
 import io.github.mzmine.modules.io.import_rawdata_thermo_raw.ThermoImportTaskDelegator;
+import io.github.mzmine.modules.io.import_rawdata_tofwerk_h5.TofwerkH5ImportTask;
 import io.github.mzmine.modules.io.import_rawdata_wiff2.Wiff2ImportTask;
 import io.github.mzmine.modules.io.import_rawdata_zip.ZipImportTask;
 import io.github.mzmine.modules.io.import_spectral_library.SpectralLibraryImportParameters;
@@ -423,6 +424,8 @@ public class AllSpectralDataImportModule implements MZmineProcessingModule {
           new MzDataImportTask(project, file, module, parameters, moduleCallDate, storage);
       case NETCDF ->
           new NetCDFImportTask(project, file, module, parameters, moduleCallDate, storage);
+      case TOFWERK_H5 ->
+          new TofwerkH5ImportTask(project, file, module, parameters, moduleCallDate, storage);
       case THERMO_RAW ->
           new ThermoImportTaskDelegator(storage, moduleCallDate, file, scanProcessorConfig, project,
               parameters, module);
@@ -496,7 +499,7 @@ public class AllSpectralDataImportModule implements MZmineProcessingModule {
           new MSConvertImportTask(storage, moduleCallDate, file, scanProcessorConfig, project,
               module, parameters);
       // all unsupported tasks are wrapped to apply import and mass detection separately
-      case MZDATA, NETCDF, MZML_ZIP, MZML_GZIP, ICPMSMS_CSV ->
+      case MZDATA, NETCDF, MZML_ZIP, MZML_GZIP, ICPMSMS_CSV, TOFWERK_H5 ->
           createWrappedAdvancedTask(fileType, project, file, scanProcessorConfig, module,
               parameters, moduleCallDate, storage, storageMassLists);
     };

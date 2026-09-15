@@ -82,6 +82,7 @@ public class RawDataFileTypeDetector {
   public static final String SCIEX_WIFF2_SUFFIX = ".wiff2";
   public static final String AGILENT_ACQDATATA_FOLDER = "AcqData";
   private static final String MBI_SUFFIX = ".mbi";
+  private static final String TOFWERK_H5_SUFFIX = ".h5";
 
   private static final Logger logger = Logger.getLogger(RawDataFileTypeDetector.class.getName());
   private static final String LCD_SUFFIX = ".lcd";
@@ -164,6 +165,9 @@ public class RawDataFileTypeDetector {
       }
       if (fileName.getName().endsWith(MBI_SUFFIX)) {
         return RawDataFileType.MBI;
+      }
+      if (lowerName.endsWith(TOFWERK_H5_SUFFIX)) {
+        return RawDataFileType.TOFWERK_H5;
       }
 
       // only require file for reading header
